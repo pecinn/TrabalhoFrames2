@@ -28,20 +28,20 @@ public class TipoAtividadeController {
     
     @RequestMapping(value = {"CadastrarTipoAtividade"},method = RequestMethod.GET)
     public String CadastrarTipoAtividade(){
-        return "tipoAtividade/cadastroTipoAtividade";
+        return "cadastroTipoAtividade";
     }
     
     @RequestMapping(value = {"CadastrarTipoAtividade"},method = RequestMethod.POST)
     public String CadastrarTipoAtividade(TipoAtividadeMapeamento tipoAtividade){
         this.tipoAtividadeRep.salvar(tipoAtividade);
-        return "tipoAtividade/cadastroTipoAtividade";
+        return "cadastroTipoAtividade";
     }
     
     @RequestMapping(value = {"ListarTipoAtividade"},method = RequestMethod.GET)
     public String ListarTipoAtividade(Model model){
         List<TipoAtividadeMapeamento> listaTipoAtivi = this.tipoAtividadeRep.buscarTodos();
         model.addAttribute("listaTipoAti", listaTipoAtivi);
-        return "tipoAtividade/listarTipoAtividade";
+        return "listarTipoAtividade";
     }
 
     public TipoAtividadeRepository getTipoAtividadeRep() {

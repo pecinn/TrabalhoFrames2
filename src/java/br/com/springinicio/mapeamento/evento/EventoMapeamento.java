@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.springinicio.mapeamento.atividade;
+package br.com.springinicio.mapeamento.evento;
 
 import br.com.springinicio.mapeamento.tipoatividade.TipoAtividadeMapeamento;
 import java.io.Serializable;
@@ -25,7 +25,7 @@ import org.hibernate.annotations.FetchMode;
  */
 @Entity
 @Table(name = "Atividade")
-public class AtividadeMapeamento implements Serializable{
+public class EventoMapeamento implements Serializable{
     @Id
     @GeneratedValue
     private long id;

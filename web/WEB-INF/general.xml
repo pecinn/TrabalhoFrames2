@@ -21,4 +21,10 @@
     <definition name="listarTipoAtividade" extends="common">
         <put-attribute name="body" value="/WEB-INF/jsp/tipoAtividade/listarTipoAtividade.jsp" />
     </definition>
+    <definition name="fazerInscricao" extends="common">
+        <put-attribute name="body" value="/WEB-INF/jsp/inscricao/fazerInscricao.jsp" />
+    </definition>
+     <definition name="cadastrarEvento" extends="common">
+        <put-attribute name="body" value="/WEB-INF/jsp/evento/cadastrarEvento.jsp" />
+    </definition>
 </tiles-definitions>

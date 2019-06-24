@@ -6,7 +6,11 @@
 package br.com.springinicio.controller;
 
 import br.com.springinicio.mapeamento.evento.EventoMapeamento;
+import br.com.springinicio.mapeamento.tipoatividade.TipoAtividadeMapeamento;
+import br.com.springinicio.repository.TipoAtividadeRepository;
+import java.util.List;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -18,7 +22,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class EventoController {
     
      @RequestMapping(value = {"CadastrarEvento"}, method = RequestMethod.GET)
-    public String CadastrarEvento(){
+    public String CadastrarEvento(Model model){
+        List<TipoAtividadeMapeamento> listaTiposAtividades;
+
+        listaTiposAtividades = new TipoAtividadeRepository().buscarTodos();
+
+        model.addAttribute("listaTiposAtividade", listaTiposAtividades);
+
         return "cadastrarEvento";
     }
     

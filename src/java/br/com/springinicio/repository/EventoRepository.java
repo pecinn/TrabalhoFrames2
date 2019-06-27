@@ -18,11 +18,9 @@ import org.hibernate.Transaction;
 public class EventoRepository {
      public void salvar(EventoMapeamento evento) {
         Session session = NewHibernateUtil.getSessionFactory().openSession();
-
         Transaction transac = session.beginTransaction();
         session.save(evento);
         transac.commit();
-
         session.close();
     }
 

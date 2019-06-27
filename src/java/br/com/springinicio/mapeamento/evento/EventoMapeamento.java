@@ -23,7 +23,7 @@ import org.hibernate.annotations.FetchMode;
  * @author Frank
  */
 @Entity
-@Table(name = "Atividade")
+@Table(name = "Evento")
 public class EventoMapeamento implements Serializable{
     @Id
     @GeneratedValue
@@ -32,6 +32,7 @@ public class EventoMapeamento implements Serializable{
     @JoinColumn(name = "idTipoAtividade")
     @Fetch(FetchMode.JOIN)
     private TipoAtividadeMapeamento tipoAtividade;
+    private String titulo;
     private int totalDeVagas;
     private Date dataInicio;
     private int cargaHoraria;
@@ -51,6 +52,15 @@ public class EventoMapeamento implements Serializable{
     public void setTipoAtividade(TipoAtividadeMapeamento tipoAtividade) {
         this.tipoAtividade = tipoAtividade;
     }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+    
 
     public int getTotalDeVagas() {
         return totalDeVagas;

@@ -7,6 +7,7 @@ package br.com.springinicio.controller;
 
 import br.com.springinicio.mapeamento.evento.EventoMapeamento;
 import br.com.springinicio.mapeamento.tipoatividade.TipoAtividadeMapeamento;
+import br.com.springinicio.repository.EventoRepository;
 import br.com.springinicio.repository.TipoAtividadeRepository;
 import java.util.List;
 import org.springframework.stereotype.Controller;
@@ -20,9 +21,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class EventoController {
+    private EventoRepository eventoRep = new EventoRepository();
     
-     @RequestMapping(value = {"CadastrarEvento"}, method = RequestMethod.GET)
+     @RequestMapping(value = {"CadastrarEvento"},method = RequestMethod.GET)
     public String CadastrarEvento(Model model){
+        
         List<TipoAtividadeMapeamento> listaTiposAtividades;
 
         listaTiposAtividades = new TipoAtividadeRepository().buscarTodos();
@@ -34,7 +37,23 @@ public class EventoController {
     
     @RequestMapping(value = {"CadastrarEvento"},method = RequestMethod.POST)
     public String CadastrarEvento(EventoMapeamento eventoMapeamento){
-     
+        this.eventoRep.salvar(eventoMapeamento);
         return "cadastrarEvento";
     }
+    
+    @RequestMapping(value = {"ListarEvento"},method = RequestMethod.GET)
+    public String ListarEvento(Model model){
+        List<EventoMapeamento> listaEvento = this.eventoRep.buscarTodos();
+        model.addAttribute("listarEvento", listaEvento);
+        return "listarEvento";
+    }
+    
+    public EventoRepository getEventoRep(){
+        return eventoRep;
+    }
+    
+    public void setEventoRep(EventoRepository eventoRep){
+        this.eventoRep = eventoRep;
+    }
+    
 }

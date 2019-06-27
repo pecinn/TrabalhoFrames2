@@ -11,29 +11,21 @@
 <form method="POST" action="CadastrarEvento.htm">
     <div class="form-group">
         <h3>Cadastro de atividades</h3>
-        <!--table class="table">
-            <tr>
-                <th>Id</th>
-                <th>Descrição</th>
-            </tr>
-            <!--c:forEach var="item" items="${listaTipoAti}">
-                <tr>
-                    <td>${item.id}</td>
-                    <td>${item.descricao}</td>
-                </tr>
-        <!--/c:forEach-->
-        </table-->
+        
         <label for="eventoId">Total de Vagas</label>
         <input id="eventoId" class="form-control" type="number" name="totalDeVagas">
-
+        
+        <label for="eventoId">Título</label>
+        <input id="eventoId" class="form-control" type="text" name="titulo">
+        
         <label for="eventoId">Data de Início</label>
         <input id="eventoId" class="form-control" type="date" name="dataInicio">
 
         <label for="eventoId">Carga Horária</label>
         <input id="eventoId" class="form-control" type="number" name="cargaHoraria">
 
-        <label class="control-label" for="">Tipo</label> 
-        <select name="idTipoAtividade" class="form-control">
+        <label class="control-label" for="eventoId">Tipo</label> 
+        <select name="tipoAtividade" class="form-control" id="descricaoId">
             <c:forEach items="${listaTiposAtividade}" var="tipoAtivi">
                 <option value="${tipoAtivi.id}">${tipoAtivi.descricao}</option>
             </c:forEach>

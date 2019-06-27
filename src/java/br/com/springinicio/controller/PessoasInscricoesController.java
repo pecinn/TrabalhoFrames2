@@ -6,7 +6,10 @@
 package br.com.springinicio.controller;
 
 import br.com.springinicio.mapeamento.pessoa.PessoaMapeamento;
+import br.com.springinicio.repository.PessoaRepository;
+import java.util.List;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -16,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class PessoasInscricoesController {
-    
+    private PessoaRepository pessoaRep = new PessoaRepository();
     
     @RequestMapping(value = {"FazerInscricao"}, method = RequestMethod.GET)
     public String CadastrarParticipante(){
@@ -24,8 +27,24 @@ public class PessoasInscricoesController {
     }
     
     @RequestMapping(value = {"FazerInscricao"},method = RequestMethod.POST)
-    public String CadastrarParticipante(PessoaMapeamento pessoaMapeamento){
-     
+    public String CadastrarParticipante(PessoaMapeamento pessoa){
+     this.pessoaRep.salvar(pessoa);
         return "fazerInscricao";
     }
+   
+    @RequestMapping(value = {"ListarPessoas"},method = RequestMethod.GET)
+    public String ListarPessoas(Model model){
+        List<PessoaMapeamento> listaDePessoas = this.pessoaRep.buscarTodos();
+        model.addAttribute("listaDePessoas", listaDePessoas);
+        return "listaDePessoas";
+    }
+    
+    public PessoaRepository getPessoaRep(){
+        return pessoaRep;
+    }
+    
+    public void setPessoaRep(PessoaRepository pessoaRep){
+        this.pessoaRep = pessoaRep;
+    }
+    
 }

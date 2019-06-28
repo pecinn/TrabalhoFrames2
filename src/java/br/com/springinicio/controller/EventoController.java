@@ -36,7 +36,8 @@ public class EventoController {
     }
     
     @RequestMapping(value = {"CadastrarEvento"},method = RequestMethod.POST)
-    public String CadastrarEvento(EventoMapeamento eventoMapeamento){
+    public String CadastrarEvento(EventoMapeamento eventoMapeamento, Model model){
+        System.out.println(eventoMapeamento.getTipoAtividade().getId());
         this.eventoRep.salvar(eventoMapeamento);
         return "cadastrarEvento";
     }

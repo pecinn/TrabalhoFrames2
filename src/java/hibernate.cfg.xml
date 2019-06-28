@@ -7,8 +7,8 @@
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/evento?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.hbm2ddl.auto">update</property>
-    <mapping class="br.com.springinicio.mapeamento.tipoatividade.TipoAtividadeMapeamento"/>
     <mapping class="br.com.springinicio.mapeamento.evento.EventoMapeamento"/>
     <mapping class="br.com.springinicio.mapeamento.pessoa.PessoaMapeamento"/>
+    <mapping class="br.com.springinicio.mapeamento.tipoatividade.TipoAtividadeMapeamento"/>
   </session-factory>
 </hibernate-configuration>

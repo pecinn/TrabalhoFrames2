@@ -13,19 +13,19 @@
         <h3>Cadastro de atividades</h3>
         
         <label for="eventoId">Total de Vagas</label>
-        <input id="eventoId" class="form-control" type="number" name="totalDeVagas">
+        <input id="eventoId" value="123" class="form-control" type="number" name="totalDeVagas">
         
         <label for="eventoId">Título</label>
-        <input id="eventoId" class="form-control" type="text" name="titulo">
+        <input id="eventoId" value="aaaaaaaaaa" class="form-control" type="text" name="titulo">
         
         <label for="eventoId">Data de Início</label>
-        <input id="eventoId" class="form-control" type="date" name="dataInicio">
+        <!--input id="eventoId" class="form-control" type="date" name="dataInicio"-->
 
         <label for="eventoId">Carga Horária</label>
-        <input id="eventoId" class="form-control" type="number" name="cargaHoraria">
+        <input id="eventoId" value="12345" class="form-control" type="number" name="cargaHoraria">
 
         <label class="control-label" for="eventoId">Tipo</label> 
-        <select name="tipoAtividade" class="form-control" id="descricaoId">
+        <select name="tipoAtividade.id" class="form-control">
             <c:forEach items="${listaTiposAtividade}" var="tipoAtivi">
                 <option value="${tipoAtivi.id}">${tipoAtivi.descricao}</option>
             </c:forEach>

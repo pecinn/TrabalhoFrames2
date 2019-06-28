@@ -60,8 +60,7 @@ public class EventoMapeamento implements Serializable{
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
-    
-
+  
     public int getTotalDeVagas() {
         return totalDeVagas;
     }

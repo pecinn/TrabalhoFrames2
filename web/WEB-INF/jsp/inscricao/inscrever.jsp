@@ -1,20 +1,21 @@
 <%-- 
-    Document   : fazerInscricao
-    Created on : 17/06/2019, 08:04:03
-    Author     : LaboratorioA
+    Document   : inscrever
+    Created on : 30/06/2019, 11:39:05
+    Author     : Felipe
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<h2>Inscrição</h2>
+<h3>Inscrições</h3>
 <form method="POST" action="FazerInscricao.htm">
-    <div class="form-group">
+
+<div class="form-group">
         <label for="inscricaoId">Nome</label>
-        <input id="pessoaId" class="form-control" type="text" name="nome">
+        <input id="inscricaoId" class="form-control" type="text" name="nome">
 
         <label for="inscricaoId">CPF</label>
-        <input id="pessoaId" class="form-control" type="text" name="cpf">
+        <input id="inscricaoId" class="form-control" type="text" name="cpf">
 
         <div class="row">
             <div class="col-lg-6">
@@ -40,6 +41,13 @@
         
         <label for="inscricaoId">Siape</label>
         <input id="inscricaoId" class="form-control" type="text" name="siape">
+        
+         <label class="control-label" for="inscicaoId">Tipo</label> 
+        <select name="evento.id" class="form-control">
+            <c:forEach items="${listaEventos}" var="eventos">
+                <option value="${eventos.id}">${eventos.titulo}</option>
+            </c:forEach>
+        </select>
     </div>
     <input class="btn btn-primary" type="submit" value="salvar">
 </form>

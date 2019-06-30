@@ -5,13 +5,18 @@
  */
 package br.com.springinicio.mapeamento.pessoa;
 
+import br.com.springinicio.mapeamento.evento.EventoMapeamento;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 /**
  *
@@ -23,7 +28,10 @@ public class PessoaMapeamento implements Serializable{
     @Id
     @GeneratedValue
     private long id;
-    //private EventoMapeamento evento;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "idEvento")
+    @Fetch(FetchMode.JOIN)
+    private EventoMapeamento evento;
     private String nome;
     @Column(length = 11, nullable = false,unique = true)
     private String cpf;
@@ -49,6 +57,14 @@ public class PessoaMapeamento implements Serializable{
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public EventoMapeamento getEvento() {
+        return evento;
+    }
+
+    public void setEvento(EventoMapeamento evento) {
+        this.evento = evento;
     }
 
   

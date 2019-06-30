@@ -7,7 +7,7 @@ package br.com.springinicio.mapeamento.evento;
 
 import br.com.springinicio.mapeamento.tipoatividade.TipoAtividadeMapeamento;
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -76,6 +76,8 @@ public class EventoMapeamento implements Serializable{
     public void setDataInicio(Date dataInicio) {
         this.dataInicio = dataInicio;
     }
+
+
 
     public int getCargaHoraria() {
         return cargaHoraria;

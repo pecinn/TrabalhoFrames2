@@ -19,7 +19,7 @@
         <input id="eventoId" value="aaaaaaaaaa" class="form-control" type="text" name="titulo">
         
         <label for="eventoId">Data de Início</label>
-        <!--input id="eventoId" class="form-control" type="date" name="dataInicio"-->
+        <input id="eventoId" class="form-control" type="date" name="dataInicio">
 
         <label for="eventoId">Carga Horária</label>
         <input id="eventoId" value="12345" class="form-control" type="number" name="cargaHoraria">

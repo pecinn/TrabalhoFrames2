@@ -8,6 +8,7 @@ package br.com.springinicio.mapeamento.pessoa;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -22,7 +23,7 @@ public class PessoaMapeamento implements Serializable{
     @Id
     @GeneratedValue
     private long id;
-    @Column(length = 100, nullable = false)
+    //private EventoMapeamento evento;
     private String nome;
     @Column(length = 11, nullable = false,unique = true)
     private String cpf;
@@ -34,6 +35,8 @@ public class PessoaMapeamento implements Serializable{
     private String ra;
     @Column(length = 7, nullable = true, unique = true)
     private String siape;
+    
+     
 
     public PessoaMapeamento(){
         this.interno = true;
@@ -47,6 +50,8 @@ public class PessoaMapeamento implements Serializable{
     public void setId(long id) {
         this.id = id;
     }
+
+  
 
     public String getNome() {
         return nome;

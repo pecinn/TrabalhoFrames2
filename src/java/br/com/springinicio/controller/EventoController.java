@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class EventoController {
     private EventoRepository eventoRep = new EventoRepository();
     
-     @RequestMapping(value = {"CadastrarEvento"},method = RequestMethod.GET)
+    @RequestMapping(value = {"CadastrarEvento"},method = RequestMethod.GET)
     public String CadastrarEvento(Model model){
         
         List<TipoAtividadeMapeamento> listaTiposAtividades;
@@ -37,7 +37,7 @@ public class EventoController {
     
     @RequestMapping(value = {"CadastrarEvento"},method = RequestMethod.POST)
     public String CadastrarEvento(EventoMapeamento eventoMapeamento, Model model){
-        System.out.println(eventoMapeamento.getTipoAtividade().getId());
+        //System.out.println(eventoMapeamento.getTipoAtividade().getId());
         this.eventoRep.salvar(eventoMapeamento);
         return "cadastrarEvento";
     }
@@ -45,7 +45,7 @@ public class EventoController {
     @RequestMapping(value = {"ListarEvento"},method = RequestMethod.GET)
     public String ListarEvento(Model model){
         List<EventoMapeamento> listaEvento = this.eventoRep.buscarTodos();
-        model.addAttribute("listarEvento", listaEvento);
+        model.addAttribute("listaEvento", listaEvento);
         return "listarEvento";
     }
     

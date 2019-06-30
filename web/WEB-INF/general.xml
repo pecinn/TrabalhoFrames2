@@ -27,4 +27,7 @@
      <definition name="cadastrarEvento" extends="common">
         <put-attribute name="body" value="/WEB-INF/jsp/evento/cadastrarEvento.jsp" />
     </definition>
+      <definition name="listarEvento" extends="common">
+        <put-attribute name="body" value="/WEB-INF/jsp/evento/listarEvento.jsp" />
+    </definition>
 </tiles-definitions>

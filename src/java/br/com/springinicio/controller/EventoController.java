@@ -39,6 +39,11 @@ public class EventoController {
     public String CadastrarEvento(EventoMapeamento eventoMapeamento, Model model){
         //System.out.println(eventoMapeamento.getTipoAtividade().getId());
         this.eventoRep.salvar(eventoMapeamento);
+        List<TipoAtividadeMapeamento> listaTiposAtividades;
+
+        listaTiposAtividades = new TipoAtividadeRepository().buscarTodos();
+
+        model.addAttribute("listaTiposAtividade", listaTiposAtividades);
         return "cadastrarEvento";
     }
     

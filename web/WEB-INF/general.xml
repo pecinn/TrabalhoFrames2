@@ -30,4 +30,7 @@
     <definition name="inscrever" extends="common">
         <put-attribute name="body" value="/WEB-INF/jsp/inscricao/inscrever.jsp" />
     </definition>
+    <definition name="listaDePessoas" extends="common">
+        <put-attribute name="body" value="/WEB-INF/jsp/inscricao/listarInscricoes.jsp" />
+    </definition>
 </tiles-definitions>

@@ -8,6 +8,7 @@
         <li><a href="CadastrarEvento.htm">Cadastrar Evento</a>
         <li><a href="ListarEvento.htm">Listar Evento</a>
         <li><a href="FazerInscricao.htm">Incrições</a></li>
+        <li><a href="ListarInscricoes.htm">Listar Incrições</a></li>
     </ul>
 </div>
 

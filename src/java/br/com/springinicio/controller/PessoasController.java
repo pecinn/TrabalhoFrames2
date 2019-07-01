@@ -5,7 +5,6 @@
  */
 package br.com.springinicio.controller;
 
-
 import br.com.springinicio.mapeamento.evento.EventoMapeamento;
 import br.com.springinicio.mapeamento.pessoa.PessoaMapeamento;
 import br.com.springinicio.repository.EventoRepository;
@@ -25,36 +24,39 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class PessoasController {
+
     private PessoaRepository pessoaRep = new PessoaRepository();
-    
-    @RequestMapping(value = {"FazerInscricao"},method = RequestMethod.GET)
-    public String FazerInscricao(Model model){
+
+    @RequestMapping(value = {"FazerInscricao"}, method = RequestMethod.GET)
+    public String FazerInscricao(Model model) {
         List<EventoMapeamento> listaEventos;
         listaEventos = new EventoRepository().buscarTodos();
         model.addAttribute("listaEventos", listaEventos);
         return "inscrever";
     }
 
-   
-    @RequestMapping(value = {"FazerInscricao"},method = RequestMethod.POST)
-    public String FazerInscricao(PessoaMapeamento pessoa, Model model){
-     this.pessoaRep.salvar(pessoa);
+    @RequestMapping(value = {"FazerInscricao"}, method = RequestMethod.POST)
+    public String FazerInscricao(PessoaMapeamento pessoa, Model model) {
+        this.pessoaRep.salvar(pessoa);
+        List<EventoMapeamento> listaEventos;
+        listaEventos = new EventoRepository().buscarTodos();
+        model.addAttribute("listaEventos", listaEventos);
         return "inscrever";
     }
-    
-    @RequestMapping(value = {"ListarPessoas"},method = RequestMethod.GET)
-    public String ListarPessoas(Model model){
+
+    @RequestMapping(value = {"ListarInscricoes"}, method = RequestMethod.GET)
+    public String ListarInscricoes(Model model) {
         List<PessoaMapeamento> listaDePessoas = this.pessoaRep.buscarTodos();
         model.addAttribute("listaDePessoas", listaDePessoas);
         return "listaDePessoas";
     }
-    
-    public PessoaRepository getPessoaRep(){
+
+    public PessoaRepository getPessoaRep() {
         return pessoaRep;
     }
-    
-    public void setPessoaRep(PessoaRepository pessoaRep){
+
+    public void setPessoaRep(PessoaRepository pessoaRep) {
         this.pessoaRep = pessoaRep;
     }
-    
+
 }
